@@ -8,15 +8,27 @@ import java.util.Objects;
 @Table(name = "tb_equipamento")
 public class Equipamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_equipamento")
-    @SequenceGenerator(name = "seq_equipamento", sequenceName = "seq_equipamento", allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_equipamento"
+    )
+    @SequenceGenerator(
+            name = "seq_equipamento",
+            sequenceName = "seq_equipamento",
+            allocationSize = 1
+    )
     @Column(name = "id_equipamento")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "id_tp_equipamento",
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.REFRESH
+    )
+    @JoinColumn(
+            name = "id_tp_equipamento",
             referencedColumnName = "id_tp_equipamento",
-            foreignKey = @ForeignKey(name = "fk_tb_tp_equipamento", value = ConstraintMode.CONSTRAINT))
+            foreignKey = @ForeignKey(name = "fk_tb_tp_equipamento", value = ConstraintMode.CONSTRAINT)
+    )
     private TipoEquipamento tipo;
 
     @Column(name = "nm_equipamento")

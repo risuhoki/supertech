@@ -8,8 +8,15 @@ import java.util.Objects;
 @Table(name = "tb_tp_equipamento")
 public class TipoEquipamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_tp_equipamento")
-    @SequenceGenerator(name = "seq_tp_equipamento", sequenceName = "seq_tb_equipamento", allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_tp_equipamento"
+    )
+    @SequenceGenerator(
+            name = "seq_tp_equipamento",
+            sequenceName = "seq_tb_equipamento",
+            allocationSize = 1
+    )
     @Column(name = "id_tp_equipamento")
     private Long id;
 

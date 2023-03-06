@@ -1,7 +1,6 @@
 package br.com.fiap.domain.cliente.model;
 
 import jakarta.persistence.*;
-import org.checkerframework.common.aliasing.qual.Unique;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -67,4 +66,111 @@ public class Cliente {
 
     @Embedded
     private Telefone telefone;
+
+    public Cliente() {}
+
+    public Cliente(Long id, String nome, TipoCliente tipo, String email, LocalDate dtNascimento, Telefone telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.email = email;
+        this.dtNascimento = dtNascimento;
+        this.telefone = telefone;
+    }
+
+    public Cliente(String nome, TipoCliente tipo, String email, LocalDate dtNascimento, Telefone telefone) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.email = email;
+        this.dtNascimento = dtNascimento;
+        this.telefone = telefone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Cliente setId(Long id) {
+        this.id = id;
+
+        return this;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Cliente setNome(String nome) {
+        this.nome = nome;
+
+        return this;
+    }
+
+    public TipoCliente getTipo() {
+        return tipo;
+    }
+
+    public Cliente setTipo(TipoCliente tipo) {
+        this.tipo = tipo;
+
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Cliente setEmail(String email) {
+        this.email = email;
+
+        return this;
+    }
+
+    public LocalDate getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public Cliente setDtNascimento(LocalDate dtNascimento) {
+        this.dtNascimento = dtNascimento;
+
+        return this;
+    }
+
+    public Telefone getTelefone() {
+        return telefone;
+    }
+
+    public Cliente setTelefone(Telefone telefone) {
+        this.telefone = telefone;
+
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+
+        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(tipo, cliente.tipo) && Objects.equals(email, cliente.email) && Objects.equals(dtNascimento, cliente.dtNascimento) && Objects.equals(telefone, cliente.telefone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, tipo, email, dtNascimento, telefone);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Cliente {");
+        sb.append("id = ").append(id);
+        sb.append(", nome = '").append(nome).append('\'');
+        sb.append(", tipo = ").append(tipo);
+        sb.append(", email = '").append(email).append('\'');
+        sb.append(", dtNascimento = ").append(dtNascimento);
+        sb.append(", telefone = ").append(telefone);
+        sb.append('}');
+
+        return sb.toString();
+    }
 }
