@@ -1,8 +1,8 @@
 package br.com.fiap;
 
-import br.com.fiap.domain.servico.model.Servico;
-import br.com.fiap.domain.servico.model.TipoServico;
-import br.com.fiap.domain.servico.view.ServicoView;
+//import br.com.fiap.domain.servico.model.Servico;
+//import br.com.fiap.domain.servico.model.TipoServico;
+//import br.com.fiap.domain.servico.view.ServicoView;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
