@@ -11,11 +11,16 @@ public class EquipamentoRepository extends Repository {
         TipoEquipamento tipoEquip = e.getTipo();
 
         if (tipoEquip != null) {
-            tipoEquip = TipoEquipamentoRepository.findById(tipoEquip.getId());
+            if (tipoEquip.getId() != null) {
+                tipoEquip = manager.find(TipoEquipamento.class, tipoEquip.getId());
+            } else {
+                TipoEquipamentoRepository.save(tipoEquip);
+            }
+
+            e.setTipo(tipoEquip);
         }
 
         manager.getTransaction().begin();
-        e.setTipo(tipoEquip);
         manager.persist(e);
         manager.getTransaction().commit();
 
