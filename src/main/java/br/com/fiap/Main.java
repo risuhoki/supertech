@@ -1,9 +1,5 @@
 package br.com.fiap;
 
-//import br.com.fiap.domain.servico.model.Servico;
-//import br.com.fiap.domain.servico.model.TipoServico;
-//import br.com.fiap.domain.servico.view.ServicoView;
-
 import br.com.fiap.domain.equipamento.model.Equipamento;
 import br.com.fiap.domain.equipamento.model.TipoEquipamento;
 import br.com.fiap.domain.equipamento.repository.EquipamentoRepository;
@@ -56,7 +52,7 @@ public class Main {
     }
 
     private static void cadastrarTipoDeEquipamento() {
-        TipoEquipamento tipo = TipoEquipamentoView.showForm(null);
+        TipoEquipamento tipo = TipoEquipamentoView.form(null);
 
         tipo = TipoEquipamentoRepository.save(tipo);
 
@@ -67,7 +63,7 @@ public class Main {
     }
 
     private static void cadastrarEquipamento() {
-        Equipamento equip = EquipamentoView.showForm(null);
+        Equipamento equip = EquipamentoView.form(null);
 
         EquipamentoRepository.save(equip);
         JOptionPane.showMessageDialog(null, "Equipamento salvo com sucesso");
